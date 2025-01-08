@@ -1,0 +1,78 @@
+.detailcard {
+    width: auto;
+    margin: 15px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 15px;
+    display: flex;
+}
+
+.detailcard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cardimage {
+    margin-top: 25px;
+    width: 20%;
+}
+
+.notebox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.note {
+    background-color: rgb(233, 233, 233);
+    padding: 7px;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.notestar {
+    color: #393939;
+    transition: 0.2s;
+}
+
+.notebox:hover .notestar {
+    color: #d4e615;
+}
+
+.buttonbox {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+
+.likebutton {
+    border-radius: 5px;
+    background-color: rgb(233, 233, 233);
+    color: #393939;
+    width: 10%;
+    border: 0;
+    transition: 0.2s;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.likebutton:hover {
+    background-color: #393939;
+    color: rgb(233, 233, 233);
+}
+
+.detailsbutton {
+    border-radius: 5px;
+    padding: 7px;
+    background-color: #393939;
+    color: rgb(233, 233, 233);
+    width: 70%;
+    border: 0;
+    transition: 0.2s;
+}
+
+.detailsbutton:hover {
+    background-color: rgb(233, 233, 233);
+    color: #393939;
+}

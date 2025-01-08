@@ -1,0 +1,33 @@
+.frame {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    height: 100%;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.deletebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deletebutton {
+    width: 15%;
+    background-color: rgb(228, 82, 82);
+    color: rgb(233, 233, 233);
+    border: 0;
+    transition: 0.2s;
+}
+
+.deletebutton:hover {
+    width: 25%;
+    background-color: rgb(173, 28, 28);
+    color: rgb(233, 233, 233);
+}
