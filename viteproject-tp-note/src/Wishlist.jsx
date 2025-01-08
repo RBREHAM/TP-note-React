@@ -12,17 +12,18 @@ const Wishlist = () => {
 
     useEffect(() => {
         let wishlist = []
+
         for (var objmovie in localStorage){
-            if (objmovie.includes("movie")) {
+            if (objmovie.includes("movie") && !objmovie.includes("currentmovie")) {
                 let parsedObj = JSON.parse(localStorage.getItem(objmovie))
                 
                 wishlist.push(parsedObj)
             }
         }
-        console.log(wishlist)
         if(searchFilter  !== 'undefined' && searchFilter  != '' && searchFilter  != null){
             wishlist = wishlist.filter((moviedata) => moviedata.objtitle.toLowerCase().includes(searchFilter.toLowerCase()))
         }
+        console.log(wishlist)
         if (wishlist.length == 0) {
             wishlist = null
         } else {
@@ -30,21 +31,21 @@ const Wishlist = () => {
                 (movie) => {
                     return(
                         <MovieCard
+                        id={movie.objid}
                         title={movie.objtitle}
                         image={movie.objimage}
                         note={movie.objnote}
-                        id={movie.objid}
                         />
                     )
                 }
             )
         }
         setMovieData(wishlist)
-        console.log(localStorage)
     }, [searchFilter])
 
     function removeEverything() {
         localStorage.clear()
+        setMovieData(null)
     }
     
     return(

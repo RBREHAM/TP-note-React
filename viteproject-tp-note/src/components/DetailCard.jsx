@@ -14,22 +14,23 @@ const DetailCard = ({
             .then((response)=>response.json())
             .then((data)=> {
                 data = data.results.filter((movie) => movie.id == id)[0]
-                console.log(data)
                 setMovieData(data)
             });
-        
         }, [])
         
 
         function likeMovie(event) {
             event.preventDefault();
 
+            const eee = JSON.parse(localStorage.getItem("currentmovie"))
+
             let movieobj = {}
-            movieobj.objid = id
+            movieobj.objid = eee.objid
+            movieobj.objtitle = eee.objtitle
+            movieobj.objimage = eee.objimage
+            movieobj.objnote = eee.objnote
 
-            console.log(movieobj)
-
-            addToWishlist("movie"+id, JSON.stringify(movieobj))
+            addToWishlist(`movie${id}`, JSON.stringify(movieobj))
         };
 
         if(!movieData) {
@@ -42,7 +43,7 @@ const DetailCard = ({
             <div className={styles.detailcard} id={id}>
                 <img className={styles.cardimage} src={`https://image.tmdb.org/t/p/w300/${movieData.poster_path}?api_key=59d5a475554ef6dac15ec2dc29ee6014`} alt="" />
                 <div>
-                    <h3>{movieData.orignial_title}</h3>
+                    <h2>{movieData.original_title}</h2>
                     <div className={styles.notebox}>
                         <p className={styles.note}>{movieData.vote_average} / 10 <span className={styles.notestar}><i className="fa fa-star"></i></span></p>
                     </div>

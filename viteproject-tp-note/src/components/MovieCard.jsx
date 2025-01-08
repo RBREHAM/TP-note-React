@@ -10,12 +10,12 @@ const MovieCard = ({
     }) => {
         const { addToWishlist, removeFromWishlist } = useContext(SearchContext)
 
-        let isInWishlist = false;
-        if (localStorage.getItem("movie"+id) != null) {
-            isInWishlist = true
-        } else {
+        let isInWishlist = false
+        if (localStorage.getItem(`movie${id}`) == null) {
             isInWishlist = false
-        }
+        } else {
+            isInWishlist = true
+        }        
         
 
         function likeMovie(event) {
@@ -23,20 +23,20 @@ const MovieCard = ({
 
             let movieobj = {}
             movieobj.objid = id
+            movieobj.objtitle = title
+            movieobj.objimage = image
+            movieobj.objnote = note
 
-            console.log(movieobj)
-
-            addToWishlist("movie"+id, JSON.stringify(movieobj))
+            addToWishlist(`movie${id}`, JSON.stringify(movieobj))
         };
 
         function removeMovie(event) {
             event.preventDefault();
 
-            console.log("removing !")
-            removeFromWishlist("movie"+id)
+            removeFromWishlist(`movie${id}`)
         }
 
-        function details(event) {
+        function details() {
             localStorage.setItem("currentmovie", JSON.stringify({
                 objtitle: title,
                 objimage: image,

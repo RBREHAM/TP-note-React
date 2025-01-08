@@ -23,10 +23,10 @@ const MovieList = () => {
                 data = data.results.map((movie) => {
                     return(
                         <MovieCard
+                        id={movie.id}
                         title={movie.original_title}
                         image={movie.poster_path}
                         note={movie.vote_average}
-                        id={movie.id}
                         />
                     )
                 });
